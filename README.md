@@ -10,7 +10,7 @@ Steps to run :
 Default port : 4200.
 Default local url  : http://localhost:4200/
 
-Branch details :
+Branch details :   
 feat/rjxs -> shared state with rjxs   
 feat/rjxs-observable -> http client with observables   
 main-> no rjxs
