@@ -29,7 +29,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
 export class HomeComponent implements OnInit {
 
-  public postList: Post[];
+  public postList: any = [];
   readonly ID: string = "ID";
   readonly USERID: string = "USERID";
 
@@ -40,11 +40,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.homeService.getPosts().subscribe((res) => {
+    this.homeService.postList$.subscribe((res) => {
       if (res) {
-        this.postList = res;
+        this.postList.push(res);
       }
     });
+  }
+  public trackItem(index: number, item: Post) {
+    return item.id;
   }
   toggleFlip(post: Post) {
     post.flip = (post.flip === 'inactive' || post.flip === undefined) ? 'active' : 'inactive';
