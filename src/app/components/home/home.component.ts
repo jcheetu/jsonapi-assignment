@@ -29,7 +29,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
 export class HomeComponent implements OnInit {
 
-  public postList: any;
+  public postList: Post[];
   readonly ID: string = "ID";
   readonly USERID: string = "USERID";
 
