@@ -1,0 +1,35 @@
+
+.tp-box {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: transform 1s;
+  -ms-transform: transform 1s;
+  transform: transform 1s;
+  white-space: pre-wrap;
+}
+
+.tp-box__side {
+ 
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+ 
+}
+
+.tp-box__front {
+   -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.tp-box__back {
+   -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.card {
+  background-color: #e7e7e7 !important;
+}
+
+.card-plain {
+  background-color: #e7e7e7 !important;
+}

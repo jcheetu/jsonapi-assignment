@@ -1,0 +1,11 @@
+:root {
+  --timesnewroman-font-family: Georgia, "Times New Roman", Times, serif;
+  --main-red-color: #700005;
+}
+
+
+body {
+  background-color: #38496A;
+  font: 14px/1.5 sans-serif;
+  color: var(--main-red-color);
+}
