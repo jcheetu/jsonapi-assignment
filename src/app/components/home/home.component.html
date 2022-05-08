@@ -1,36 +1,13 @@
-<div *ngFor="let i of homeService.postList$ | async" class="container align-items-start float-start h-100">
-  <div *ngFor="let item of i" class="col-2 m-5 float-start">
-     
-      <div class="card tp-box" (click)="toggleFlip(item)" [@flipState]="item.flip == undefined ? 'inactive' : item.flip">
-        <div class="card-body tp-box__side tp-box__front text-center" *ngIf="item.selectedSide==='ID' || item.selectedSide===undefined">
-
-          {{item.id}}
-        </div>
-        <div class="card-body tp-box__side tp-box__back text-center" *ngIf="item.selectedSide==='USERID'">
-
-          {{item.userId}}
-
-        </div>
-
+<div class="container align-items-start float-start h-100">
+  <div *ngFor="let item of homeService.postList$ | async" class="col-2 m-5 float-start">
+    <div class="card tp-box" (click)="toggleFlip(item)" [@flipState]="item.flip == undefined ? 'inactive' : item.flip">
+      <div class="card-body tp-box__side tp-box__front text-center" *ngIf="item.selectedSide==='ID' || item.selectedSide===undefined">
+        {{item.id}}
       </div>
-    </div> <br />
-  </div>
-  
-  <!--<div class="container align-items-start float-start h-100">
-    <div *ngFor="let item of postList | async" class="col-2 m-5 float-start">
-      <div class="card tp-box" (click)="toggleFlip(item)" [@flipState]="item.flip == undefined ? 'inactive' : item.flip">
-        <div class="card-body tp-box__side tp-box__front text-center" *ngIf="item.selectedSide==='ID' || item.selectedSide===undefined">
-
-          {{item.id}}
-        </div>
-        <div class="card-body tp-box__side tp-box__back text-center" *ngIf="item.selectedSide==='USERID'">
-
-          {{item.userId}}
-
-        </div>
-
+      <div class="card-body tp-box__side tp-box__back text-center" *ngIf="item.selectedSide==='USERID'">
+        {{item.userId}}
       </div>
-
 
     </div>
-  </div>-->
+  </div>
+</div>

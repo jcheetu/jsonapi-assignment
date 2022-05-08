@@ -27,11 +27,10 @@ export class HomeService extends StateService<HomeState> {
     public router: Router
   ) {
     super(initialState);
-
   }
   private setPostListState(data: Post[]) {
     this.setState({
-      postList: [...this.state.postList, data]
+      postList: data
     });
   }
 
@@ -40,7 +39,6 @@ export class HomeService extends StateService<HomeState> {
     return this.http.get<Post[]>(`${api}?_sort=views&_order=desc`).pipe(
       map((res: Post[]) => {
         this.setPostListState(res);
-        return res;
       }),
       catchError(this.handleError)
     )
