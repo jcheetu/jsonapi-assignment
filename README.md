@@ -14,3 +14,5 @@ Branch details :
 feat/rjxs -> shared state with rjxs   
 feat/rjxs-observable -> http client with observables   
 main-> no rjxs
+
+Flip animation provided for post-cards to flip between id/userid
