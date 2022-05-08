@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Post } from './home';
 import { HomeService } from './home.component.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -29,22 +30,26 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
 export class HomeComponent implements OnInit {
 
-  public postList: any = [];
+  public postList: Post[];
   readonly ID: string = "ID";
   readonly USERID: string = "USERID";
 
 
-  constructor(private homeService: HomeService
+  constructor(private homeService: HomeService,
+    private cdr: ChangeDetectorRef
   ) {
+   
 
   }
 
   ngOnInit() {
-    this.homeService.postList$.subscribe((res) => {
-      if (res) {
-        this.postList.push(res);
-      }
+    this.homeService.getPosts().subscribe((x) => {
+      this.homeService.postList$.subscribe((res)=>{
+        this.postList = res;
+        this.cdr.detectChanges();
+      });
     });
+   
   }
   public trackItem(index: number, item: Post) {
     return item.id;
