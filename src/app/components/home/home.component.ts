@@ -30,26 +30,17 @@ import { catchError, map } from 'rxjs/operators';
 
 export class HomeComponent implements OnInit {
 
-  public postList: Post[];
   readonly ID: string = "ID";
   readonly USERID: string = "USERID";
 
 
-  constructor(private homeService: HomeService,
-    private cdr: ChangeDetectorRef
+  constructor(public homeService: HomeService
   ) {
-   
-
   }
 
   ngOnInit() {
     this.homeService.getPosts().subscribe((x) => {
-      this.homeService.postList$.subscribe((res)=>{
-        this.postList = res;
-        this.cdr.detectChanges();
-      });
     });
-   
   }
   public trackItem(index: number, item: Post) {
     return item.id;
